@@ -1,4 +1,4 @@
-import { getDictionary } from '../src';
+import { getDictionary, findAbbreviations } from '../src';
 
 describe('Old Danish Dictionary tests', () => {
   test('Dictionary contains expected amount of entries', () => {
@@ -34,5 +34,22 @@ describe('Old Danish Dictionary tests', () => {
 
     expect(vandhagl.headword).toBe('Vandhagl');
     expect(vandhagl.definitions[0]).toBe('no. et slags hagl; lade skyde med vandhagl 12 urh\u00f8ns (1642). AL. Efter M: mindste h.');
+  });
+});
+
+describe('Old Danish abbreviations tests', () => {
+  test('Finds abbreviations in content', () => {
+    // From definition of 'Abild'
+    const content = '"no. (isl. apaldr.) \u00e6bletr\u00e6; then frucht, som paa then abildh\u00e6 staar. Hr. Michael. 134; malus, abild eller ebletr\u00e6. Vocab. 1514; tree ymper abbele, perer eller andre gode tr\u00e6r (1587). Rosenv., Gl L. IV. 186 = Chr. V. D. L. 3-18-18; fruet- tr\u00e6er, som abile, p\u00e6rer. A. Bernt-sen. I. 309 .\u2014"';
+
+    const expected = new Map();
+    expected.set('isl.', 'islandsk.');
+    expected.set('n.', 'norsk.');
+    expected.set('no.', 'navneord (substantivum).');
+    expected.set('æ.', 'ældre.');
+
+    const result = findAbbreviations(content);
+
+    expect(result).toEqual(expected);
   });
 });
