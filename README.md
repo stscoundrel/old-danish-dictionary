@@ -6,7 +6,39 @@ Old Danish Dictionary for Node.js. From Otto Kalkar's Dictionary of elder Danish
 
 `yarn add old-danish-dictionary`
 
-##### Usage
+### Usage
+
+The project provides a getter for the whole compressed dataset. You can use it in your script to populate your own database or otherwise use the data.
+
+Should you want to use the data without this Node.js library, you might want to check [Old Danish Dictionary Builder](https://github.com/stscoundrel/old-danish-dictionary-builder).
+
+```javascript
+import { getDictionary } from 'old-danish-dictionary'
+
+/**
+ * Whole dictionary as array
+ * contains over 45 000 entries.
+ */
+const dictionary = getDictionary()
+
+
+// Filter words starting with letter T
+const tWords = dictionary.filter((entry) => entry.word.charAt(0) === 't')
+
+console.log(tWords)
+
+```
+
+Individual words are returned in format of:
+
+```javascript
+{
+    headword: string,
+    definitions: string[],
+}
+```
+
+As in the printed book, some definitions are heavily abbreviated. You can map them back to their full meanings.
 
 Find abbreviations used in the definitions.
 
@@ -25,8 +57,8 @@ console.log(result);
 // "no." => "navneord (substantivum).",
 // "æ." => "ældre.",
 
-
 ```
+
 
 ### About "Dictionary of the Old Danish Language"
 
