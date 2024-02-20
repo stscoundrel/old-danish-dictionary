@@ -8,8 +8,24 @@ Old Danish Dictionary for Node.js. From Otto Kalkar's Dictionary of elder Danish
 
 ##### Usage
 
+Find abbreviations used in the definitions.
+
 ```javascript
-// TODO
+import { findAbbreviations }  from 'cleasby-vigfusson-abbreviations'
+
+// Example: definition of 'Abild'
+const content = 'no. (isl. apaldr.) æbletræ; then frucht, som paa then abildhæ staar.'; // etc etc.
+
+// Returns map of abbreviations to meanings.
+const result = findAbbreviations(content);
+
+console.log(result);
+// "isl." => "islandsk.",
+// "n." => "norsk.",
+// "no." => "navneord (substantivum).",
+// "æ." => "ældre.",
+
+
 ```
 
 ### About "Dictionary of the Old Danish Language"
