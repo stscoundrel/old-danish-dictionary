@@ -1,6 +1,6 @@
 {
   "name": "old-danish-dictionary",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Old Danish Dictionary for Node.js. From Otto Kalkar's Dictionary of elder Danish language.",
   "repository": "https://github.com/stscoundrel/old-danish-dictionary.git",
   "author": "stscoundrel <silvennoinen.sampo@gmail.com>",
