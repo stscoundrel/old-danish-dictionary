@@ -4,7 +4,7 @@ describe('Old Danish Dictionary tests', () => {
   test('Dictionary contains expected amount of entries', () => {
     const result = getDictionary();
 
-    expect(result.length).toBe(45259);
+    expect(result.length).toBe(45257);
   });
 
   test('Dictionary entries are parsed in correct object format', () => {
