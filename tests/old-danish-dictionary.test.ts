@@ -4,7 +4,7 @@ describe('Old Danish Dictionary tests', () => {
   test('Dictionary contains expected amount of entries', () => {
     const result = getDictionary();
 
-    expect(result.length).toBe(45257);
+    expect(result.length).toBe(45245);
   });
 
   test('Dictionary entries are parsed in correct object format', () => {
@@ -14,8 +14,8 @@ describe('Old Danish Dictionary tests', () => {
       // Only expected keys.
       expect(Object.keys(entry)).toEqual(['headword', 'definitions']);
 
-      // TODO: should assert headwords are not empty.
-      // Current dataset contains 8 empties, so cant be done yet.
+      // Headwords are not empty.
+      expect(entry.headword).not.toEqual('');
     });
   });
 
